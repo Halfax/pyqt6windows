@@ -1,0 +1,1 @@
+num_rooms = 12
