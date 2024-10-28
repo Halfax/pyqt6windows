@@ -2,15 +2,75 @@ INFO:root:Started
 DEBUG:root:whattodo = nothing
 DEBUG:root:new game or load game got
 DEBUG:root:whattodo = new_game
-INFO:root:Started
+DEBUG:root:new game
 DEBUG:root:whattodo = nothing
-DEBUG:root:new game or load game got
-DEBUG:root:whattodo = new_game
-INFO:root:Started
-DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:whattodo = dungeon
 INFO:root:Started
 DEBUG:root:whattodo = nothing
 DEBUG:root:new game or load game got
 DEBUG:root:whattodo = new_game
 DEBUG:root:new game
+DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:whattodo = dungeon
+DEBUG:root:dungeon exited
+DEBUG:root:whattodo = exit
+DEBUG:root:whattodo should be exit = new_game
+DEBUG:root:out of move loop and print windows
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+DEBUG:root:new game
+DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:whattodo = dungeon
+DEBUG:root:dungeon exited
+DEBUG:root:whattodo = exit
+DEBUG:root:whattodo should be exit = new_game
+DEBUG:root:out of move loop and print windows
+DEBUG:root:app.exec_() done
+INFO:root:Finished
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+DEBUG:root:new game
+DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:whattodo = dungeon
+DEBUG:root:dungeon exited
+DEBUG:root:whattodo = exit
+DEBUG:root:whattodo should be exit = new_game
+DEBUG:root:out of move loop and print windows
+DEBUG:root:app.exec_() done
+INFO:root:Finished
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+DEBUG:root:new game
+DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:nothing
+DEBUG:root:whattodo should be exit = created
+DEBUG:root:out of move loop and print windows
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+DEBUG:root:new game
+DEBUG:root:whattodo = nothing
+DEBUG:root:got accpted or reroll get
+DEBUG:root:whattodo = created
+DEBUG:root:whattodo = dungeon
+DEBUG:root:dungeon exited
+DEBUG:root:whattodo = exit
+DEBUG:root:whattodo should be exit = exit
 DEBUG:root:out of move loop and print windows

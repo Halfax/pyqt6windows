@@ -1,7 +1,9 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QFileDialog, QMessageBox, QCheckBox, QComboBox, QLineEdit, QTextEdit, QHBoxLayout, QGridLayout
+from PyQt6.QtCore import Qt
 import logging
 import config
 import sys
+import functions as myfun
 
 logger = logging.getLogger(__name__)
 
@@ -111,7 +113,97 @@ def pop_game_start(app,whattodo):
     sub1.close()
     return whattodo,app
     
+def pop_char_create(app,whattodo):
+    sub1 = QMainWindow()
+    sub1.setWindowTitle('create char Window')
+    sub1.setGeometry(120, 120, 200, 200)
+    sub1.layout = QVBoxLayout()
+    sub1.whattodo = 'nothing'
+    myvalue = myfun.roll_dice(20 ,4)
+    logging.debug(f"whattodo = {sub1.whattodo}")
+    sub1.central_widget = QWidget()
+    sub1.central_widget.setLayout(sub1.layout)
+    sub1.setCentralWidget(sub1.central_widget)
+    sub1.label = QLabel("your character", sub1.central_widget)
+    sub1.layout.addWidget(sub1.label)
+    sub1.label = QLabel(f"your value is {myvalue}", sub1.central_widget)    
+    sub1.layout.addWidget(sub1.label)
+    accept_button = QPushButton("accept", sub1)
+    accept_button.clicked.connect(lambda: setattr(sub1, 'whattodo', 'created'))
+    sub1.layout.addWidget(accept_button)
+
+    reroll_button = QPushButton("reroll", sub1)
+    reroll_button.clicked.connect(lambda: sub1.label.setText(f"your value is {myfun.roll_dice(20, 4)}"))  
+    sub1.layout.addWidget(reroll_button)
+    show_sub1_window(sub1)
+    while sub1.whattodo not in ['created']:  
+        app.processEvents()
+    logging.debug('got accpted or reroll get')
+    whattodo = sub1.whattodo
+    logging.debug(f'whattodo = {whattodo}')
+    sub1.close()
+    return whattodo,app    
+
+def update_myvalue(myvalue):
+    myvalue = myfun.roll_dice(20, 4)
+    return myvalue
     
+def pop_load_game(app,whattodo):
+    sub1 = QMainWindow()
+    sub1.setWindowTitle('load Game Window')
+    sub1.setGeometry(120, 120, 200, 200)
+    sub1.layout = QVBoxLayout()
+    sub1.whattodo = 'loading'
+    logging.debug(f"whattodo = {sub1.whattodo}")
+    sub1.central_widget = QWidget()
+    sub1.central_widget.setLayout(sub1.layout)
+    sub1.setCentralWidget(sub1.central_widget)
+    sub1.label = QLabel("loading game", sub1.central_widget)
+    sub1.layout.addWidget(sub1.label)
+    file_dialog = QFileDialog(sub1)
+    file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
+    file_dialog.setNameFilter("Game Files (*.game)")
+    if file_dialog.exec():
+        selected_file = file_dialog.selectedFiles()[0]
+        sub1.label.setText(f"Selected file: {selected_file}")
+        sub1.whattodo = 'loaded'
+    else:
+        sub1.label.setText("No file selected")
+        sub1.whattodo = 'nothing'
+
+    show_sub1_window(sub1)
+    while sub1.whattodo not in ['loaded','nothing']:  
+        app.processEvents()
+    logging.debug('loaded got processed')
+    whattodo = sub1.whattodo
+    logging.debug(f'whattodo = {whattodo}')
+    sub1.close()
+    return whattodo,app
+
+def pop_dungeon(app,whattodo):  
+    sub2 = QMainWindow()
+    sub2.setWindowTitle('dungeon Window')
+    sub2.setGeometry(120, 120, 200, 200)
+    sub2.layout = QVBoxLayout()
+    sub2.whattodo = 'dungeon'
+    logging.debug(f"whattodo = {sub2.whattodo}")
+    sub2.central_widget = QWidget()
+    sub2.central_widget.setLayout(sub2.layout)
+    sub2.setCentralWidget(sub2.central_widget)
+    sub2.label = QLabel("dungeon will be displayed here", sub2.central_widget)
+    sub2.layout.addWidget(sub2.label)
+    sub2.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
+    sub2.closeEvent = lambda event: setattr(sub2, 'whattodo', 'exit')
+    show_sub1_window(sub2)
+    while sub2.whattodo not in ['exit']:  
+        app.processEvents()
+    logging.debug('dungeon exited')
+    print (f"dungeon exited")
+    print (f"whattodo = {sub2.whattodo}")
+    whattodo = sub2.whattodo
+    logging.debug(f'whattodo = {whattodo}')
+    sub2.close()
+    return whattodo,app
 
 def create_sub1_window():
     sub1 = QApplication.instance()
