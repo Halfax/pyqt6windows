@@ -1,0 +1,16 @@
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+INFO:root:Started
+DEBUG:root:whattodo = nothing
+DEBUG:root:new game or load game got
+DEBUG:root:whattodo = new_game
+DEBUG:root:new game
+DEBUG:root:out of move loop and print windows
